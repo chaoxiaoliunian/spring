@@ -1,0 +1,11 @@
+<beans>
+    <bean id="course" class="com.sjqi.spring.example.model.Course">
+        <property name="name" value="哲学"/>
+    </bean>
+    <!-- 添加属性：factory-method  factory-method init-method destory-method scope abstract -->
+    <bean id="teacher" class="com.sjqi.spring.example.model.Teacher">
+        <property name="name" value="陈果"/>
+    </bean>
+    <bean id="student" class="com.sjqi.spring.example.model.Student">
+    </bean>
+</beans>

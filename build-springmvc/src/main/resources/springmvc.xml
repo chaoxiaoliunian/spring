@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <!--配置对应的匹配策略-->
+    <bean id="simpleMapping" class="com.sjqi.springmvc.handlermapping.SimpleHandlerMapping"></bean>
+    <bean id="nameUrlMapping" class="com.sjqi.springmvc.handlermapping.BeanNameUrlHandlerMapping"></bean>
+
+    <!-- 配置对应的处理器 -->
+    <bean id="/addUser" class="com.sjqi.springmvc.handler.AddUserHandler"></bean>
+    <bean id="/deleteUser" class="com.sjqi.springmvc.handler.DeleteUserHandler"></bean>
+    <bean id="/modifyUser" class="com.sjqi.springmvc.handler.ModifyUserHandler"></bean>
+
+</beans>

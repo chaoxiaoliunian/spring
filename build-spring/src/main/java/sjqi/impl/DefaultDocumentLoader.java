@@ -1,0 +1,66 @@
+package sjqi.impl;
+
+import org.w3c.dom.Document;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.ErrorHandler;
+import org.xml.sax.InputSource;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+/**
+ * @ClassName DefaultDocumentLoader
+ * @Description TODO
+ * @Author sjqi
+ * @Date 17:29 2019/3/28
+ * @Version 1.0
+ **/
+public class DefaultDocumentLoader {
+    private static final String SCHEMA_LANGUAGE_ATTRIBUTE = "http://java.sun.com/xml/jaxp/properties/schemaLanguage";
+    private static final String XSD_SCHEMA_LANGUAGE = "http://www.w3.org/2001/XMLSchema";
+
+    public DefaultDocumentLoader() {
+    }
+
+    public Document loadDocument(InputSource inputSource) throws Exception {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();//this.createDocumentBuilderFactory(validationMode, namespaceAware);
+
+        DocumentBuilder builder =factory.newDocumentBuilder(); //this.createDocumentBuilder(factory, entityResolver, errorHandler);
+        return builder.parse(inputSource);
+    }
+
+    protected DocumentBuilderFactory createDocumentBuilderFactory(int validationMode, boolean namespaceAware) throws ParserConfigurationException {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(namespaceAware);
+        if (validationMode != 0) {
+            factory.setValidating(true);
+            if (validationMode == 3) {
+                factory.setNamespaceAware(true);
+
+                try {
+                    factory.setAttribute("http://java.sun.com/xml/jaxp/properties/schemaLanguage", "http://www.w3.org/2001/XMLSchema");
+                } catch (IllegalArgumentException var6) {
+                    ParserConfigurationException pcex = new ParserConfigurationException("Unable to validate using XSD: Your JAXP provider [" + factory + "] does not support XML Schema. Are you running on Java 1.4 with Apache Crimson? Upgrade to Apache Xerces (or Java 1.5) for full XSD support.");
+                    pcex.initCause(var6);
+                    throw pcex;
+                }
+            }
+        }
+
+        return factory;
+    }
+
+    protected DocumentBuilder createDocumentBuilder(DocumentBuilderFactory factory, EntityResolver entityResolver, ErrorHandler errorHandler) throws ParserConfigurationException {
+        DocumentBuilder docBuilder = factory.newDocumentBuilder();
+        if (entityResolver != null) {
+            docBuilder.setEntityResolver(entityResolver);
+        }
+
+        if (errorHandler != null) {
+            docBuilder.setErrorHandler(errorHandler);
+        }
+
+        return docBuilder;
+    }
+}
