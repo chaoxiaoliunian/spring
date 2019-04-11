@@ -81,5 +81,5 @@ public class UserController extends BaseController {
         String json = "{\"msg\":\"返回消息\",\"name\":\"" + name + "\",\"age\":\"" + age + "\"}";
         response.getWriter().write(json);
     }
-//TODO:拦截器，跨域，mock测试，异常处理，乱码解决。整合mybatis(SpringJDBC)结合手写框架进一步思考。
+//TODO:跨域，mock测试，异常处理，乱码解决。整合mybatis(SpringJDBC)结合手写框架进一步思考。
 }

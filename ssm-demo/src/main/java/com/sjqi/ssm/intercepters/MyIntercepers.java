@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @ClassName MyIntercepers
  * @Description SpringMVC 的拦截器是绑定在HandlerMapping 中的
+ * 使用步骤：1.创建拦截器类；2.在xml中配置
  * @Author sjqi
  * @Date 11:39 2019/4/11
  * @Version 1.0
@@ -26,8 +27,14 @@ public class MyIntercepers implements HandlerInterceptor {
      */
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         /**
+         * 通常权限认证逻辑如下：
          * 1.公共url放行;2.有session放行;3.不放行，跳转到登录界面
+         *
          */
+        String requestURI=request.getRequestURI();
+        //if(requestURI.indexOf()){}
+        String username=(String)request.getSession().getAttribute("username");
+        //response.sendRedirect("login.jsp");
         System.out.println("preHandle");
         return true;
     }
