@@ -85,5 +85,6 @@ public class UserController2 {
     /**
      * resultful uri 表现资源 http method 表现操作。
      *TODO:进一步体会restful 的细节，了解servlet中的filter 细节
+     * TODO:进一步了解跨域实现原理，利用手写框架实现跨域。
      */
 }

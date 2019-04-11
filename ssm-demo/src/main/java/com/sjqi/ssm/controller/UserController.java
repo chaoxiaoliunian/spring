@@ -5,10 +5,7 @@ import com.sjqi.ssm.model.ParamsModel2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletException;
@@ -35,6 +32,8 @@ public class UserController extends BaseController {
      * @param model springmvc 自动创建，用来向jsp返回数据,通过${msg}获取
      * @return 返回值代表返回给前端的页面
      */
+    //跨域标签加到方法上，加到类上，或者配置全局：<mvc:cors> <mvc:mapping path="/">
+    @CrossOrigin
     @GetMapping(value = "getUsersBy", params = {"name", "age", "birthday"})
     //封装了RequestMapping,参数params 的字符串是不带语义的严格匹配
     public String getUsersBy(ParamsModel2 user, Model model) {
@@ -81,5 +80,5 @@ public class UserController extends BaseController {
         String json = "{\"msg\":\"返回消息\",\"name\":\"" + name + "\",\"age\":\"" + age + "\"}";
         response.getWriter().write(json);
     }
-//TODO:跨域，mock测试，异常处理，乱码解决。整合mybatis(SpringJDBC)结合手写框架进一步思考。
+//TODO:mock测试，异常处理，乱码解决。整合mybatis(SpringJDBC)结合手写框架进一步思考。
 }
