@@ -12,7 +12,7 @@
 
     <!-- 配置处理器Bean的读取 -->
     <!-- 扫描controller注解,多个包中间使用半角逗号分隔 -->
-    <context:component-scan base-package="com.sjqi.ssm.controller"/>
+    <context:component-scan base-package="com.sjqi.ssm.controller,com.sjqi.ssm.advice"/>
     <!--这样配置静态资源不会被拦截，/默认的是webapp目录不是WEB-INF 文件夹-->
     <mvc:resources mapping="/js/**" location="/js/"/>
 
