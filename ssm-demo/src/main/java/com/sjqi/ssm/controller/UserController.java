@@ -36,7 +36,6 @@ public class UserController extends BaseController {
     @GetMapping(value = "getUsersBy", params = {"name", "age", "birthday"})
     //封装了RequestMapping,参数params 的字符串是不带语义的严格匹配
     public String getUsersBy(ParamsModel2 user, Model model) {
-        //TODO:Model和ModelMap和ModelAndView间的区别
         model.addAttribute("msg", "前端穿过来的名称:" + user.getName() + ",年龄：" + user.getAge() + "生日：" + user.getBirthday());
         //请求跳转，model参数能够被jsp接收
         return "forward:getHello";
