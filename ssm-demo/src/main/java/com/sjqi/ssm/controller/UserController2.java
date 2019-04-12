@@ -1,5 +1,6 @@
 package com.sjqi.ssm.controller;
 
+import com.sjqi.ssm.exception.MyException;
 import com.sjqi.ssm.model.ParamsModel;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,6 @@ import java.sql.Date;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.TimeZone;
 import java.util.UUID;
 
 /**
@@ -70,9 +70,13 @@ public class UserController2 {
         return paramsModel;
     }
 
-    @RequestMapping("{id}/{name}")
-    public ParamsModel queryUserById(@PathVariable Integer id, @PathVariable String name) {
-       //测试 @PathVariable从url中读取参数 http://localhost/responseBody/27/sjqi
+    @RequestMapping(value = "{id}/{name}")
+    public ParamsModel queryUserById(@PathVariable Integer id, @PathVariable String name) throws MyException {
+        //测试 @PathVariable从url中读取参数 http://localhost/responseBody/27/sjqi
+        if (id < 16) {
+            //测试自定义异常：http://localhost/responseBody/15/sjqi
+            throw new MyException("id不能小于16");
+        }
         ParamsModel paramsModel = new ParamsModel();
         paramsModel.setName(name);
         paramsModel.setAge(id);

@@ -17,13 +17,14 @@
     <mvc:resources mapping="/js/**" location="/js/"/>
 
     <mvc:interceptors>
-    <mvc:interceptor>
+        <mvc:interceptor>
             <mvc:mapping path="/responseBody/**"/>
             <bean class="com.sjqi.ssm.intercepters.MyIntercepers"/>
         </mvc:interceptor>
     </mvc:interceptors>
-
-            <!-- 配置三大组件之处理器适配器和处理器映射器 -->
+    <!--自定义全局异常处理器-->
+    <bean class="com.sjqi.ssm.exception.MyExceptionResolver"/>
+    <!-- 配置三大组件之处理器适配器和处理器映射器 -->
     <!-- 内置了RequestMappingHandlerMapping和RequestMappingHandlerAdapter等组件注册-->
     <mvc:annotation-driven conversion-service="conversionService"/>
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
@@ -34,6 +35,7 @@
             </set>
         </property>
     </bean>
+
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <!--配置文件上传-->
         <property name="maxUploadSize" value="5242880"/>

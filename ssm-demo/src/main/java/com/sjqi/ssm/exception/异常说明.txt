@@ -1,0 +1,4 @@
+对于Exception 的子类
+
+继承了RuntimeException 的输入运行时异常，如空指针，数组越界，需要人工调试。
+没有继承RuntimeException，属于编译时异常，如IO异常,需要显示try{}catch{}

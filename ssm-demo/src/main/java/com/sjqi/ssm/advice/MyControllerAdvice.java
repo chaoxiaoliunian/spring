@@ -1,7 +1,6 @@
 package com.sjqi.ssm.advice;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +40,7 @@ public class MyControllerAdvice {
     @ResponseBody
     public String handleException(Exception e) {
         //应用到所有的@RequestMapping，在其抛出异常时指定。
-        System.out.println("Controller 增强：异常处理");
+        System.out.println("Controller 增强：异常处理，检测到异常消息：" + e.getMessage());
         return e.getMessage();
     }
 }
