@@ -1,0 +1,38 @@
+跨域问题：浏览器的同源策略导致。同源：出于安全考虑，DNS域名，端口号，协议相同的页面才能操作dom。
+
+跨域问题解决：
+1.不发ajax请求。
+2.解决同源策略限制：
+a.chrome可以装一个允许跨域插件。
+b.js 标签的src。
+c.jquery 的jsonp,只支持get。
+d.cors，w3c标准，允许浏览器跨源发送XMLHTTPRequest请求，需要前后端都支持。
+
+cros原理：1.浏览器加入origin 头；2.后端响应头加入Access-Controll-Allow-Origin;3.浏览器检测到头进行操作。
+对于浏览器端：
+简单请求（1.GET HEAD   POST；2.无自定义请求头）浏览器自动发送跨域请求。
+非简单请求：会发送预检请求，方法名:OPTIONS, 头中包含：
+                  1）Access-Control-Request-Method:列出会使用哪些方法。
+                  2）Access_Control-Request-Headers:指定浏览器会额外发送的请求头信息。
+ $.ajax({
+                'type': 'GET',
+                'url': url,
+                 xhrFields: {withCredentials: true},//跨域携带cookie。
+                success: function (data) {
+                    console.log(data);
+                },
+                error : function(XMLHttpRequest, textStatus, errorThrown) {
+                    //请求的失败的返回的方法
+                    alert("删除失败，请稍后再次尝试删除！");
+                }
+            });
+对于后端：
+SpringMVC5 直接配置@CrossOrigin，之前需要依赖拦截器，手工设置request 中的header如下：
+         在preHandler中设置：
+                 response.setHeader("Access-Control-Allow-Origin", "*");
+                 response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");
+                 response.setHeader("Access-Control-Max-Age", "3600");
+                 response.setHeader("Access-Control-Allow-Headers", "x-requested-with");
+                 response.setHeader("XDomainRequestAllowed", "1");
+                 //如果需要跨域，还需要增加
+                 response.setHeader("Access-Control-Allow-Credentials", "true");
