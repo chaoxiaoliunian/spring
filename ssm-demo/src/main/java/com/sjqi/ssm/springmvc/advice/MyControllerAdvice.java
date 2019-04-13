@@ -1,4 +1,4 @@
-package com.sjqi.ssm.advice;
+package com.sjqi.ssm.springmvc.advice;
 
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.web.bind.WebDataBinder;

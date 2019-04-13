@@ -1,4 +1,4 @@
-package com.sjqi.ssm.exception;
+package com.sjqi.ssm.springmvc.exception;
 
 /**
  * @ClassName MyException

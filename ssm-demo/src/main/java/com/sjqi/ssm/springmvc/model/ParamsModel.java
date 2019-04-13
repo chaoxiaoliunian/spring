@@ -1,4 +1,4 @@
-package com.sjqi.ssm.model;
+package com.sjqi.ssm.springmvc.model;
 
 import java.util.Date;
 

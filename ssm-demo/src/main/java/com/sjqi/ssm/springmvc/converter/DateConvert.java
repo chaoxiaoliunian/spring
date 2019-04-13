@@ -1,4 +1,4 @@
-package com.sjqi.ssm.converter;
+package com.sjqi.ssm.springmvc.converter;
 
 import org.springframework.core.convert.converter.Converter;
 

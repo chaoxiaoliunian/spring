@@ -1,4 +1,4 @@
-package com.sjqi.ssm.intercepters;
+package com.sjqi.ssm.springmvc.intercepters;
 
 import org.springframework.lang.Nullable;
 import org.springframework.web.servlet.HandlerInterceptor;

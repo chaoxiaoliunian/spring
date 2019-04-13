@@ -1,7 +1,7 @@
-package com.sjqi.ssm.controller;
+package com.sjqi.ssm.springmvc.controller;
 
-import com.sjqi.ssm.exception.MyException;
-import com.sjqi.ssm.model.ParamsModel;
+import com.sjqi.ssm.springmvc.exception.MyException;
+import com.sjqi.ssm.springmvc.model.ParamsModel;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;

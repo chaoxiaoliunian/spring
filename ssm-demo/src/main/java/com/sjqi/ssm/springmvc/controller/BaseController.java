@@ -1,6 +1,6 @@
-package com.sjqi.ssm.controller;
+package com.sjqi.ssm.springmvc.controller;
 
-import com.sjqi.ssm.model.ParamsModel;
+import com.sjqi.ssm.springmvc.model.ParamsModel;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 

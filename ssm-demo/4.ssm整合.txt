@@ -2,7 +2,15 @@
 1.加入依赖。
 2.配置xml。
 
-//TODO:阿里面试题之手工实现一个数据库连接池。
-
 笔记：
 1.分层思想分为：逻辑上的分层，将相关的知识点放到一起；物理分层;
+
+问题列表：
+//TODO:阿里面试题之手工实现一个数据库连接池。
+//TODO:写博客：跨域和日志写一个专题。
+<!-- 问题1：web.xml中servelet、filter、listener、context-param加载顺序 -->
+    <!-- 问题2：load-on-startup标签的作用，影响了servlet对象创建的时机 -->
+    <!-- 问题3：url-pattern标签的配置方式有四种：/dispatcherServlet、 /servlet/* 、* 、/ ,以上四种配置，优先级是如何的 -->
+    <!-- 问题4：url-pattern标签的配置为/*报错，原因是它拦截了JSP请求，但是又不能处理JSP请求。为什么配置/就不拦截JSP请求，而配置/*，就会拦截JSP请求 -->
+    <!-- 问题5：配置了springmvc去读取spring配置文件之后，就产生了spring父子容器的问题 -->
+

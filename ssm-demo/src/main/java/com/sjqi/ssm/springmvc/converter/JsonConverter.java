@@ -1,4 +1,4 @@
-package com.sjqi.ssm.converter;
+package com.sjqi.ssm.springmvc.converter;
 
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 

@@ -19,11 +19,11 @@
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/responseBody/**"/>
-            <bean class="com.sjqi.ssm.intercepters.MyIntercepers"/>
+            <bean class="com.sjqi.ssm.springmvc.intercepters.MyIntercepers"/>
         </mvc:interceptor>
     </mvc:interceptors>
     <!--自定义全局异常处理器-->
-    <bean class="com.sjqi.ssm.exception.MyExceptionResolver"/>
+    <bean class="com.sjqi.ssm.springmvc.exception.MyExceptionResolver"/>
     <!-- 配置三大组件之处理器适配器和处理器映射器 -->
     <!-- 内置了RequestMappingHandlerMapping和RequestMappingHandlerAdapter等组件注册-->
     <mvc:annotation-driven conversion-service="conversionService"/>
@@ -31,7 +31,7 @@
         <property name="converters">
             <set>
                 <!--配置日期类型转换器-->
-                <bean class="com.sjqi.ssm.converter.DateConvert"/>
+                <bean class="com.sjqi.ssm.springmvc.converter.DateConvert"/>
             </set>
         </property>
     </bean>
