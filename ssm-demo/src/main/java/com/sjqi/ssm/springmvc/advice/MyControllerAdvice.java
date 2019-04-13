@@ -40,7 +40,8 @@ public class MyControllerAdvice {
     @ResponseBody
     public String handleException(Exception e) {
         //应用到所有的@RequestMapping，在其抛出异常时指定。
-        System.out.println("Controller 增强：异常处理，检测到异常消息：" + e.getMessage());
+        System.out.println("Controller 增强：异常处理，检测到异常消息：" );
+        e.printStackTrace();
         return e.getMessage();
     }
 }

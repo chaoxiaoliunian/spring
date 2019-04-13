@@ -1,7 +1,10 @@
 package com.sjqi.ssm.springmvc.controller;
 
+import com.sjqi.ssm.mybatis.javabean.UserData;
+import com.sjqi.ssm.service.IUserDataDao;
 import com.sjqi.ssm.springmvc.exception.MyException;
 import com.sjqi.ssm.springmvc.model.ParamsModel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -28,6 +31,9 @@ import java.util.UUID;
 @RestController
 @RequestMapping("responseBody")
 public class UserController2 {
+    @Autowired
+    private IUserDataDao userDataDao;
+
     @RequestMapping(value = "uploadFile", produces = "text/plain;charset=utf-8")
     public String uploadFile(@RequestParam("uploadFile") MultipartFile file, HttpSession session) throws IOException {
         if (null == file) {
@@ -62,12 +68,9 @@ public class UserController2 {
      * })
      */
     @GetMapping("returnPOJO")
-    public ParamsModel getPOJO() {
+    public UserData getPOJO() {
         //自动将响应头设置为:application/json;charset=utf-8
-        ParamsModel paramsModel = new ParamsModel();
-        paramsModel.setName("sjqi");
-        paramsModel.setAge(20);
-        return paramsModel;
+        return userDataDao.selectByPrimaryKey(2);
     }
 
     @RequestMapping(value = "{id}/{name}")
