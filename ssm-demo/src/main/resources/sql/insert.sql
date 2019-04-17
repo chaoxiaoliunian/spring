@@ -1,3 +1,4 @@
+#向用户表和机构表中插入数据
 insert into userdata (username,age,sex,addr) values
 ('欧阳娜娜10',20,'女','香港第一大道')
 , ('欧阳娜娜11',20,'女','香港第一大道')

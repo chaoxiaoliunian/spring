@@ -1,4 +1,4 @@
-#使用user库
+#建库建表
 select '创建mydata库';
 drop database  if exists mydata;
 create database mydata;

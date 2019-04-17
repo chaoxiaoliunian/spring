@@ -1,0 +1,4 @@
+2.静态内部类才可以声明静态方法。
+3.遗留问题：scanvenge gc和full GC，其中full GC触发的条件
+4.在使用+,-,*/,%的时候，只要有一个数是double,float,long，则另外一个也会被转型，否则全部(byte,short,int,char)转为int。
+5.>>是

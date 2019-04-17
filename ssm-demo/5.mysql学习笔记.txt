@@ -1,0 +1,21 @@
+mysql锁相关：
+1.粒度：库，表，行。表级锁力度大，加锁快，并发低。行级锁粒度小，并发高，加锁慢，容易出现死锁。
+2.功能：共享读锁，排他写锁。
+3.实现方式：悲观锁和乐观锁。
+
+sql相关：
+1.truncate  table 表名，是删除表后重建表，自增属性被重置，delete则不会。
+2.limit 不是sql92标准，而是Mysql独有的语法，是实现物理分页的一种方式。
+    select * from userdata limit 5,10; 代表从第5条记录开始（包含第5条）向后查10条。初始值为0。
+    用select * from userdata where id>15000 limit 1000; 这种方式比纯limit 15000,1000 这种方式快。
+select * from userdata limit 2 offset 1  是从1条开始（包括第1条，查询两条）
+
+3.交叉连接：from a,b; from a cross join b;
+   内连接：from a,b where a.id=b.id ; from a inner join b on a.id=b.id;
+    外连接：left join ;left outer join ;
+                   right join;right outer join;
+                    full join;full outer join;
+     借鉴sql执行顺序：先进行笛卡尔积，然后on筛选，然后哪边的连接就把哪边的表剩余的元素补充进去作为主表，从表信息为null。
+
+4.mysql 复合索引有最左优先原则，索引最左第一个字段必须出现在sql中，这个索引才会生效。
+
