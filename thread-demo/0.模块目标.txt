@@ -3,8 +3,14 @@
 2.实现哲学家就餐问题。
 3.多生产者消费者问题。
 4.sleep 和wait 的四点区别。
+  1.sleep 是Thread 方法；wait 是Object方法（我的理解，是因为sychronized需要指定一个锁，这个锁可以不是Thread）;
+  2.sleep 不释放锁;wait会释放锁;
+  3.wait 必须放到sychronized 中，sleep可以放到任何地方。
+  4.sleep需要捕获中断异常。
+
 5.自定义lock。
 6.线程的状态转移：概念图。
+
 7.为线程加入异常钩子。
 8.线程的异常和方法栈。
 9.main和普通线程的stackSize。
