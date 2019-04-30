@@ -1,0 +1,5 @@
+1.jps 查看java 线程号
+
+2.jconsole +线程号
+
+3.jstack + 线程号
