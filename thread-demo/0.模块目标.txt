@@ -7,11 +7,13 @@
   2.sleep 不释放锁;wait会释放锁;
   3.wait 必须放到sychronized 中，sleep可以放到任何地方。
   4.sleep需要捕获中断异常。
-
 5.自定义lock。
 6.线程的状态转移：概念图。
-
 7.为线程加入异常钩子。
 8.线程的异常和方法栈。
 9.main和普通线程的stackSize。
 10.自定义线程池。
+11.解决缓存一致性的底层方案
+12.volatile的作用，以及应用场景。
+13.hapensbefore relationship 。
+14.并发编程的三个重要概念。
