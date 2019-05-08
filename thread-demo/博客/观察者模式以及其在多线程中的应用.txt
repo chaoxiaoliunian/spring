@@ -1,0 +1,6 @@
+1.Observer模式原理描述。
+  首先需要有一个被观察的Subject,主题持有Observer列表（通过attach注册），和一个状态，一旦状态改变，则通知所有的Observer
+  Observer创建时被赋予一个Subject,通过subject的attach注册自己，所有的Observer都会实现一个update方法，用于放置监听的响应逻辑。
+
+2.实现一个线程状态的监听。
+

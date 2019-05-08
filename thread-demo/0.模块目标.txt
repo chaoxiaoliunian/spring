@@ -17,3 +17,4 @@
 12.volatile的作用，以及应用场景。
 13.hapensbefore relationship 。
 14.并发编程的三个重要概念。
+15.观察者模式。
