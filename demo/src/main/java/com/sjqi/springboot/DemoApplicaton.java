@@ -1,10 +1,12 @@
 package com.sjqi.springboot;
 
+import com.sjqi.springboot.applicationlistener.MyEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -28,7 +30,11 @@ public class DemoApplicaton implements CommandLineRunner {
     private JdbcTemplate jdbcTemplate;
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplicaton.class);
+
+        ConfigurableApplicationContext context=SpringApplication.run(DemoApplicaton.class);
+        context.publishEvent(new MyEvent("hello","测试"));
+        //context.getEnvironment().getActiveProfiles();
+        System.out.println(context.getBean("myListener"));
     }
 
 

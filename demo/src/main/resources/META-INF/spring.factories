@@ -1,0 +1,8 @@
+org.springframework.boot.SpringApplicationRunListener=\
+  com.sjqi.springboot.MyRunListener
+
+#org.springframework.context.ApplicationListener=\
+ # com.sjqi.springboot.applicationlistener.TestSpringApplicationListener
+
+org.springframework.context.ApplicationContextInitializer=\
+  com.sjqi.springboot.MyApplicationContextInitializer
